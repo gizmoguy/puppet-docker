@@ -79,7 +79,7 @@ class docker::params {
     'Debian' : {
       case $::operatingsystem {
         'Ubuntu' : {
-          $package_release = "ubuntu-${::lsbdistcodename}"
+          $package_release = "${::lsbdistcodename}"
           if (versioncmp($::operatingsystemrelease, '15.04') >= 0) {
             $service_provider        = 'systemd'
             $storage_config          = '/etc/default/docker-storage'
@@ -98,7 +98,7 @@ class docker::params {
           }
         }
         default: {
-          $package_release = "debian-${::lsbdistcodename}"
+          $package_release = "${::lsbdistcodename}"
           if (versioncmp($::operatingsystemmajrelease, '8') >= 0) {
             $service_provider           = 'systemd'
             $storage_config             = '/etc/default/docker-storage'
@@ -123,7 +123,7 @@ class docker::params {
       $service_name = $service_name_default
       $docker_command = $docker_command_default
       $docker_group = $docker_group_default
-      $package_repos = 'main'
+      $package_repos = 'stable'
       $use_upstream_package_source = true
       $pin_upstream_package_source = true
       $apt_source_pin_level = 10
