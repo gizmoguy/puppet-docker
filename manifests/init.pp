@@ -294,6 +294,10 @@
 # [*docker_command*]
 #   Specify a custom docker command name
 #   Default is set on a per system basis in docker::params
+
+# [*dockerd_command*]
+#   Specify a custom docker daemon command name
+#   Default is set on a per system basis in docker::params
 #
 # [*daemon_subcommand*]
 #  Specify a subcommand/flag for running docker as daemon
@@ -405,6 +409,7 @@ class docker(
   $package_name                      = $docker::params::package_name,
   $service_name                      = $docker::params::service_name,
   $docker_command                    = $docker::params::docker_command,
+  $dockerd_command                   = $docker::params::dockerd_command,
   $daemon_subcommand                 = $docker::params::daemon_subcommand,
   $docker_users                      = [],
   $repo_opt                          = $docker::params::repo_opt,

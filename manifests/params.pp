@@ -58,7 +58,8 @@ class docker::params {
   $manage_kernel                     = true
   $package_name_default              = 'docker-ce'
   $service_name_default              = 'docker'
-  $docker_command_default            = 'dockerd'
+  $docker_command_default            = 'docker'
+  $dockerd_command_default           = 'dockerd'
   $docker_group_default              = 'docker'
   $daemon_subcommand                 = ''
   $storage_devs                      = undef
@@ -122,6 +123,7 @@ class docker::params {
       $package_name = $package_name_default
       $service_name = $service_name_default
       $docker_command = $docker_command_default
+      $dockerd_command = $dockerd_command_default
       $docker_group = $docker_group_default
       $package_repos = 'stable'
       $use_upstream_package_source = true
@@ -192,6 +194,7 @@ class docker::params {
       $package_release = undef
       $service_name = $service_name_default
       $docker_command = $docker_command_default
+      $dockerd_command = $dockerd_command_default
       if (versioncmp($::operatingsystemrelease, '7.0') < 0) or ($::operatingsystem == 'Amazon') {
         $detach_service_in_init = true
         if $::operatingsystem == 'OracleLinux' {
@@ -248,6 +251,7 @@ class docker::params {
       $package_name = 'docker'
       $service_name = $service_name_default
       $docker_command = $docker_command_default
+      $dockerd_command = $dockerd_command_default
       $detach_service_in_init = false
       $repo_opt = undef
       $nowarn_kernel = false
@@ -272,6 +276,7 @@ class docker::params {
       $package_name = 'app-emulation/docker'
       $service_name = $service_name_default
       $docker_command = $docker_command_default
+      $dockerd_command = $dockerd_command_default
       $detach_service_in_init = true
       $repo_opt = undef
       $nowarn_kernel = false
@@ -300,6 +305,7 @@ class docker::params {
       $package_name = $package_name_default
       $service_name = $service_name_default
       $docker_command = $docker_command_default
+      $dockerd_command = $dockerd_command_default
       $detach_service_in_init = true
       $repo_opt = undef
       $nowarn_kernel = false
